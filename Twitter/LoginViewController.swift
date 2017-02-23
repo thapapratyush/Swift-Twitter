@@ -30,7 +30,6 @@ class LoginViewController: UIViewController {
             print ("I got a callback")
             
             let url = URL(string: "https://api.twitter.com/oauth/authorize?oauth_token=\((requestToken?.token)!)")
-            //UIApplication.shared.openURL(url as URL)
             UIApplication.shared.open(url! as URL, options: [:], completionHandler: { (true) in
                 print("Sucess")
             })
