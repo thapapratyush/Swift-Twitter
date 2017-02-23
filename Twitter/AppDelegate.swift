@@ -43,34 +43,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-        print(url)
-        let twitterClient = BDBOAuth1SessionManager.init(baseURL: NSURL(string:"https://api.twitter.com")! as URL!, consumerKey: "xUgm852TuX3mcJG7Nfhyw0poo", consumerSecret: "UF9V6RImOjAXUTjJVWWEAcFkieHjO4Rv7wncuKPeMBDOG0A0wJ")
-        let requestToken = BDBOAuth1Credential(queryString: url.query)
-        
-        twitterClient?.fetchAccessToken(withPath: "oauth/access_token", method: "POST", requestToken: requestToken, success: { (accessToken: BDBOAuth1Credential?) in
-            print("SUCCCSESSS")
-            
-            twitterClient?.get("1.1/account/verify_credentials.json", parameters: nil, progress: nil, success: { (task: URLSessionDataTask, response: Any?) in
-                print("account:\(response)")
-                let userDictionary = response as! NSDictionary
-                let user = User(dictionary: userDictionary)
-            }, failure: { (task: URLSessionDataTask?, error: Error) in
-                print("Credential error")
-            })
-            
-            twitterClient?.get("1.1/statuses/home_timeline.json", parameters: nil, progress: nil, success: { (task: URLSessionDataTask, response: Any?) in
-                let dictionaries = response as! [NSDictionary]
-                let tweets = Tweet.tweetsWithArray(dictionaries: dictionaries)
-                for tweet in tweets{
-                    print("\(tweet.text!)")
-                }
-            }, failure: { (task: URLSessionDataTask?, error: Error) in
-                print("Credential error")
-            })
+        TwitterClient.sharedInstance?.handleOpenUrl(url: url as NSURL)
 
-        }, failure: { (error: Error?) in
-            print("Error")
-        })
         return true
     }
 }
