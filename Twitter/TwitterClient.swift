@@ -36,14 +36,14 @@ class TwitterClient: BDBOAuth1SessionManager {
 
     
     
-    func currentAccount(){
+    func currentAccount(success: @escaping (User) -> (), failure: @escaping (Error)-> ()){
         get("1.1/account/verify_credentials.json", parameters: nil, progress: nil, success: { (task: URLSessionDataTask, response: Any?) in
             print("account:\(response)")
             let userDictionary = response as! NSDictionary
             let user = User(dictionary: userDictionary)
-            
+            success(user)
         }, failure: { (task: URLSessionDataTask?, error: Error) in
-            //
+            failure(error as NSError)
         })
     }
     
@@ -65,7 +65,12 @@ class TwitterClient: BDBOAuth1SessionManager {
     func handleOpenUrl(url: NSURL){
         let requestToken = BDBOAuth1Credential(queryString: url.query)
         fetchAccessToken(withPath: "oauth/access_token", method: "POST", requestToken: requestToken, success: { (accessToken: BDBOAuth1Credential?) in
-            self.loginSuccess?()
+            self.currentAccount(success: { (user) in
+                User.currentUser = user 
+                self.loginSuccess?()
+            }, failure: { (error: Error?) in
+                self.loginFailure?(error as! NSError)
+            })
         }, failure: { (error: Error?) in
             self.loginFailure?(error as! NSError)
         })
