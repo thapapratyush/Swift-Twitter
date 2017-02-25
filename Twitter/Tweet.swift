@@ -33,7 +33,6 @@ class Tweet: NSObject {
         let user = dictionary["user"] as! NSDictionary
         author = user["name"] as? NSString
         authorProfilePicURL = NSURL(string: (user["profile_image_url_https"] as! String))
-        print("\(authorProfilePicURL)")
         if let timestampstring = timestampstring{
             let formatter = DateFormatter()
             formatter.dateFormat = "EEE MMM  HH:mm:ss Z y"

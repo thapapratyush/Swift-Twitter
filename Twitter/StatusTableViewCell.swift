@@ -10,19 +10,13 @@ import UIKit
 
 class StatusTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var profileImage: UIImageView!
-    @IBOutlet weak var nameLabel: UILabel!
-    
-    var tweet: Tweet? {
-        willSet(newValue){
-            self.profileImage.setImageWith((newValue?.user.profileURL)! as URL)
-            self.nameLabel.text = newValue?.user.name
-        }
-    }
-    
+    @IBOutlet weak var profileURL: UIImageView!
+
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        profileURL.layer.cornerRadius = 5
+        profileURL.clipsToBounds = true
         // Initialization code
     }
 
