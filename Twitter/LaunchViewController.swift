@@ -1,26 +1,19 @@
 //
-//  TweetsViewController.swift
+//  LaunchViewController.swift
 //  Twitter
 //
-//  Created by Pratyush Thapa on 2/22/17.
+//  Created by Pratyush Thapa on 2/24/17.
 //  Copyright © 2017 Pratyush Thapa. All rights reserved.
 //
 
 import UIKit
-import RevealingSplashView
+import CBZSplashView
 
-class TweetsViewController: UIViewController {
+class LaunchViewController: UIViewController {
 
-    var tweets: [Tweet]?
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        TwitterClient.sharedInstance?.getHomeTimeline(success: {(tweets: [Tweet]) in
-            self.tweets = tweets
-
-        }, failure: { (error: NSError) in
-            print("\(error.localizedDescription)")
-        })
+        CBZSplashView.init(icon: #imageLiteral(resourceName: "Twitter_Logo_Blue.png"), backgroundColor: nil)
 
         // Do any additional setup after loading the view.
     }

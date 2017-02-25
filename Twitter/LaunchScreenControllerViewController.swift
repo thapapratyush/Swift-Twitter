@@ -1,26 +1,18 @@
+
 //
-//  TweetsViewController.swift
+//  LaunchScreenControllerViewController.swift
 //  Twitter
 //
-//  Created by Pratyush Thapa on 2/22/17.
+//  Created by Pratyush Thapa on 2/24/17.
 //  Copyright © 2017 Pratyush Thapa. All rights reserved.
 //
 
 import UIKit
-import RevealingSplashView
 
-class TweetsViewController: UIViewController {
+class LaunchScreenControllerViewController: UIViewController {
 
-    var tweets: [Tweet]?
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        TwitterClient.sharedInstance?.getHomeTimeline(success: {(tweets: [Tweet]) in
-            self.tweets = tweets
-
-        }, failure: { (error: NSError) in
-            print("\(error.localizedDescription)")
-        })
 
         // Do any additional setup after loading the view.
     }

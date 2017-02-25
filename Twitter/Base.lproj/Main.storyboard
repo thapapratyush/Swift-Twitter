@@ -43,7 +43,7 @@
             </objects>
             <point key="canvasLocation" x="85.5" y="154.5"/>
         </scene>
-        <!--Tweets View Controller-->
+        <!--Home-->
         <scene sceneID="nqS-Mx-2xO">
             <objects>
                 <viewController id="GAr-4a-2p5" customClass="TweetsViewController" customModule="Twitter" customModuleProvider="target" sceneMemberID="viewController">
@@ -54,9 +54,45 @@
                     <view key="view" contentMode="scaleToFill" id="Ohq-xi-Xm6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="168" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VCZ-wi-hLF">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="statusCell" rowHeight="168" id="XsZ-7i-uLf" customClass="StatusTableViewCell">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="168"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XsZ-7i-uLf" id="1gn-MX-KCP">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="167.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="owV-4Z-Tl8">
+                                                    <rect key="frame" x="8" y="19" width="69" height="69"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nl4-Wf-fp8">
+                                                    <rect key="frame" x="99" y="19" width="189" height="69"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="authorNameLabel" destination="nl4-Wf-fp8" id="axR-FV-fi2"/>
+                                            <outlet property="nameLabel" destination="nl4-Wf-fp8" id="vpz-fJ-0xm"/>
+                                            <outlet property="profileImage" destination="owV-4Z-Tl8" id="ynl-OT-kJr"/>
+                                            <outlet property="profilePictureImageView" destination="owV-4Z-Tl8" id="nQE-73-zTo"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="X0F-0t-21E"/>
+                    <navigationItem key="navigationItem" title="Home" id="X0F-0t-21E"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YbE-if-jXe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -65,7 +101,7 @@
         <!--Navigation Controller-->
         <scene sceneID="Yrw-Vd-3Hk">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="FZK-3b-n3N" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="TweetsNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="FZK-3b-n3N" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ABP-l4-Z1H">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
