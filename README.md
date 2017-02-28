@@ -25,11 +25,11 @@ The following **optional** features are implemented:
 
 The following **additional** features are implemented:
 
-- [x] List anything else that you can get done to improve the app functionality!
-        -[x] Added splash screen like the original twitter app
-        -[x] Added animation view for animating while tweets are being fetched
-        -[x] Incrementing and decrementing favorites changes the color
-        -[x] Used autoLayout
+List anything else that you can get done to improve the app functionality!
+..1. Added splash screen like the original twitter app
+..2. Added animation view for animating while tweets are being fetched
+..3. Incrementing and decrementing favorites changes the color
+..4. Used autoLayout
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
