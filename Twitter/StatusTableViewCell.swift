@@ -11,8 +11,14 @@ import UIKit
 class StatusTableViewCell: UITableViewCell {
 
     @IBOutlet weak var profileURL: UIImageView!
+    @IBOutlet weak var profileName: UILabel!
+    @IBOutlet weak var favoriteButton: UIButton!
+    @IBOutlet weak var numberRetweet: UILabel!
+    @IBOutlet weak var numberFavs: UILabel!
 
+    @IBOutlet weak var userHandle: UILabel!
     
+    @IBOutlet weak var timestampLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         profileURL.layer.cornerRadius = 5
