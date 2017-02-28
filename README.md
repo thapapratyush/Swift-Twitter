@@ -40,8 +40,6 @@ Please list two areas of the assignment you'd like to **discuss further with you
 
 Here's a walkthrough of implemented user stories:
 
-## THIS IS NOT THE FINAL GIF. IT WILL BE UPDATED. I WAS RECIEVING A 429 ERROR DUE TO TOO MANY REQUESTS.
-
 <img src='http://i.imgur.com/ILNgcZh.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
@@ -52,7 +50,7 @@ Describe any challenges encountered while building the app.
 
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright [2017] [Pratyush Thapa]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
