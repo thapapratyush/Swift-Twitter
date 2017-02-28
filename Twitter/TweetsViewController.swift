@@ -13,9 +13,11 @@ import Lottie
 class TweetsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate  {
     @IBOutlet weak var tableView: UITableView!
 
-    var count = 30
+    var count = 25
     var tweets: [Tweet]?
     private var revealingLoaded = false
+    var loadingMoreView:InfiniteScrollActivityView?
+    var isMoreDataLoading = false
     
     override var shouldAutorotate: Bool {
         return revealingLoaded
@@ -38,7 +40,6 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: UIControlEvents.valueChanged)
-        // add refresh control to table view
         tableView.insertSubview(refreshControl, at: 0)
         
         let frame = CGRect(x: 0, y: tableView.contentSize.height, width: tableView.bounds.size.width, height: InfiniteScrollActivityView.defaultHeight)
@@ -52,11 +53,6 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         TwitterClient.sharedInstance?.getHomeTimeline(count: count, success: { (tweets: [Tweet]) -> () in
             self.tweets = tweets
             self.tableView.reloadData()
-            /*
-             for tweet in tweets {
-             print(tweet.text)
-             }
-             */
         }, failure: { (error: Error) -> () in
             print(error.localizedDescription)
         })
@@ -77,7 +73,6 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         revealingSplashView.startAnimation(){
             self.revealingLoaded = true
             self.setNeedsStatusBarAppearanceUpdate()
-            print("Completed")
         }
     }
     
@@ -107,13 +102,24 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         let tweet = tweets?[indexPath.row]
         if let imageUrlString = tweet?.authorProfilePicURL {
             let imageURL = imageUrlString as URL
+            cell.profileURL.layer.cornerRadius = 5
+            cell.profileURL.clipsToBounds = true
             cell.profileURL.setImageWith(imageURL)
         }
         cell.profileName.text = tweet?.username
         cell.userHandle.text = "@" + (tweet?.userHandle)!
         cell.timestampLabel.text = timeAgoSince((tweet?.timestamp)!)
-        cell.numberFavs.text = String(describing: (tweet?.favoriteCount)!)
+        if(!((tweet?.favorited)!)){
+            cell.numberFavs.text = String(describing: (tweet?.favoriteCount)!)
+            cell.favoriteButton.setImage(UIImage(named: "favor-icon.png"), for: UIControlState.normal)
+        }
+        if((tweet?.favorited)!){
+            cell.numberFavs.text = String(describing: (tweet?.favoriteCount)!)
+            cell.numberFavs.textColor = UIColor.red
+            cell.favoriteButton.setImage(UIImage(named: "favor-icon-red.png"), for: UIControlState.highlighted)
+        }
         cell.numberRetweet.text = String(describing: (tweet?.retweetCount)!)
+        cell.tweetText.text = tweet?.text
         return cell
     }
 
@@ -251,6 +257,41 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
             print(error.localizedDescription)
         })
     }
+    
+    
+    func loadMoreData() {
+        TwitterClient.sharedInstance?.getHomeTimeline(count: count, success: { (tweets: [Tweet]) -> () in
+            self.isMoreDataLoading = false
+            self.loadingMoreView!.stopAnimating()
+            self.tweets = tweets
+            self.count += 20
+            self.tableView.reloadData()
+        }, failure: { (error: Error) -> () in
+            print(error.localizedDescription)
+        })
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if (!isMoreDataLoading) {
+            // Calculate the position of one screen length before the bottom of the results
+            let scrollViewContentHeight = tableView.contentSize.height
+            let scrollOffsetThreshold = scrollViewContentHeight - tableView.bounds.size.height
+            
+            // When the user has scrolled past the threshold, start requesting
+            if(scrollView.contentOffset.y > scrollOffsetThreshold && tableView.isDragging) {
+                
+                isMoreDataLoading = true
+                
+                // Update position of loadingMoreView, and start loading indicator
+                let frame = CGRect(x: 0, y: tableView.contentSize.height, width: tableView.bounds.size.width, height: InfiniteScrollActivityView.defaultHeight)
+                loadingMoreView?.frame = frame
+                loadingMoreView!.startAnimating()
+                
+                loadMoreData()
+            }
+        }
+    }
+
     /*
     // MARK: - Navigation
 

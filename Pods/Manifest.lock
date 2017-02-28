@@ -16,18 +16,21 @@ PODS:
     - AFNetworking/NSURLSession
   - BDBOAuth1Manager (2.0.0):
     - AFNetworking/NSURLSession (~> 3.0.0)
+  - lottie-ios (1.0.2)
   - RevealingSplashView (0.1.0)
 
 DEPENDENCIES:
   - AFNetworking (= 3.0.0)
   - BDBOAuth1Manager (= 2.0.0)
+  - lottie-ios
   - RevealingSplashView
 
 SPEC CHECKSUMS:
   AFNetworking: 932ff751f9d6fb1dad0b3af58b7e3ffba0a4e7fd
   BDBOAuth1Manager: 92d17d06f8a648602962304cd2f35ae7394fa001
+  lottie-ios: 8564a52e01a29c180ded076cb059aae8ec378cf1
   RevealingSplashView: 501dd03d975ba2c4165dd463ea1c7c407fb9d13e
 
-PODFILE CHECKSUM: 78ff35e99d1874c55f89e90f685b3a02acb01655
+PODFILE CHECKSUM: 375421e0e8c1a6aebff95e7af361d65040bca156
 
 COCOAPODS: 1.2.0

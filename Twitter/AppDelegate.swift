@@ -8,6 +8,7 @@
 
 import UIKit
 import BDBOAuth1Manager
+import RevealingSplashView
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
