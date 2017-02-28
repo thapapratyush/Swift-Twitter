@@ -1,11 +1,11 @@
 # Swift-Twitter
 A model twitter app
 
-# Project 4 - *Name of App Here*
+# Project 4 - *Swift-Twitter (very creative app name)*
 
-**Name of your app** is a basic twitter app to read and compose tweets the [Twitter API](https://apps.twitter.com/).
+**Swift-Twitter (very creative app name)** is a basic twitter app to read and compose tweets the [Twitter API](https://apps.twitter.com/).
 
-Time spent: **X** hours spent in total
+Time spent: **20** hours spent in total
 
 ## User Stories
 
@@ -42,7 +42,7 @@ Here's a walkthrough of implemented user stories:
 
 ## THIS IS NOT THE FINAL GIF. IT WILL BE UPDATED. I WAS RECIEVING A 429 ERROR DUE TO TOO MANY REQUESTS.
 
-<img src='http://i.imgur.com/b6ZUYmv.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='http://i.imgur.com/ILNgcZh.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
