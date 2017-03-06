@@ -116,7 +116,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         if((tweet?.favorited)!){
             cell.numberFavs.text = String(describing: (tweet?.favoriteCount)!)
             cell.numberFavs.textColor = UIColor.red
-            cell.favoriteButton.setImage(UIImage(named: "favor-icon-red.png"), for: UIControlState.highlighted)
+            cell.favoriteButton.setImage(UIImage(named: "favor-icon-red.png"), for: UIControlState.normal)
         }
         cell.numberRetweet.text = String(describing: (tweet?.retweetCount)!)
         cell.tweetText.text = tweet?.text
@@ -225,6 +225,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
                 TwitterClient.sharedInstance?.getHomeTimeline(count: self.count, success: { (tweets: [Tweet]) -> () in
                     self.tweets = tweets
                     self.tableView.reloadData()
+                    
                 }, failure: { (error: Error) -> () in
                     print(error.localizedDescription)
                 })

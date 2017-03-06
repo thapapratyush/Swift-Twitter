@@ -21,6 +21,8 @@
 		B184F21E1E5C9BF500E11358 /* twitter_assets in Resources */ = {isa = PBXBuildFile; fileRef = B184F21D1E5C9BF500E11358 /* twitter_assets */; };
 		B184F2201E5C9D2D00E11358 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B184F21F1E5C9D2D00E11358 /* LoginViewController.swift */; };
 		B1A9061C1E60823F009EE1ED /* StatusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A9061B1E60823F009EE1ED /* StatusTableViewCell.swift */; };
+		B1BA73471E67557A0072B8CA /* retweet-icon-green.png in Resources */ = {isa = PBXBuildFile; fileRef = B1BA73461E67557A0072B8CA /* retweet-icon-green.png */; };
+		B1BA73491E6756260072B8CA /* favor-icon-red.png in Resources */ = {isa = PBXBuildFile; fileRef = B1BA73481E6756260072B8CA /* favor-icon-red.png */; };
 		B1F3D7F21E5C9B3000E184A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F3D7F11E5C9B3000E184A0 /* AppDelegate.swift */; };
 		B1F3D7F91E5C9B3000E184A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1F3D7F81E5C9B3000E184A0 /* Assets.xcassets */; };
 		B1F3D7FC1E5C9B3000E184A0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1F3D7FA1E5C9B3000E184A0 /* LaunchScreen.storyboard */; };
@@ -45,6 +47,8 @@
 		B184F21D1E5C9BF500E11358 /* twitter_assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = twitter_assets; sourceTree = "<group>"; };
 		B184F21F1E5C9D2D00E11358 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B1A9061B1E60823F009EE1ED /* StatusTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusTableViewCell.swift; sourceTree = "<group>"; };
+		B1BA73461E67557A0072B8CA /* retweet-icon-green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "retweet-icon-green.png"; path = "twitter_assets/retweet-icon-green.imageset/retweet-icon-green.png"; sourceTree = "<group>"; };
+		B1BA73481E6756260072B8CA /* favor-icon-red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "favor-icon-red.png"; path = "twitter_assets/favor-icon-red.imageset/favor-icon-red.png"; sourceTree = "<group>"; };
 		B1F3D7EE1E5C9B3000E184A0 /* Twitter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Twitter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1F3D7F11E5C9B3000E184A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B1F3D7F81E5C9B3000E184A0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -133,6 +137,8 @@
 				B14DCEC71E60ABDC00839BC5 /* TwitterLogo.png */,
 				B1528ADB1E64C86F00320C52 /* favor-icon.png */,
 				B1528ADD1E64CB5100320C52 /* retweet-icon.png */,
+				B1BA73461E67557A0072B8CA /* retweet-icon-green.png */,
+				B1BA73481E6756260072B8CA /* favor-icon-red.png */,
 				B10B8D2A1E5E6A4E00339933 /* Models */,
 				B10B8D291E5E6A4100339933 /* View Controller */,
 				B10B8D281E5E6A3900339933 /* API */,
@@ -211,6 +217,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B14DCEC81E60ABDC00839BC5 /* TwitterLogo.png in Resources */,
+				B1BA73491E6756260072B8CA /* favor-icon-red.png in Resources */,
 				B1528ADE1E64CB5100320C52 /* retweet-icon.png in Resources */,
 				B1528ADC1E64C86F00320C52 /* favor-icon.png in Resources */,
 				B1528AE31E6521D800320C52 /* Main.storyboard in Resources */,
@@ -218,6 +225,7 @@
 				B1F3D7F91E5C9B3000E184A0 /* Assets.xcassets in Resources */,
 				B1528AD81E64BDB800320C52 /* Splash.png in Resources */,
 				B184F21E1E5C9BF500E11358 /* twitter_assets in Resources */,
+				B1BA73471E67557A0072B8CA /* retweet-icon-green.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

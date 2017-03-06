@@ -51,12 +51,9 @@ class TwitterClient: BDBOAuth1SessionManager {
          TwitterClient.sharedInstance?.get("1.1/statuses/home_timeline.json", parameters: ["count": count], progress: nil, success: { (task: URLSessionDataTask, response: Any?) in
             let dictionaries = response as! [NSDictionary]
             let tweets = Tweet.tweetsWithArray(dictionaries: dictionaries)
-            for tweet in tweets{
-                //print("\(tweet.text!)")
-            }
             success(tweets)
             
-        }, failure: { (task: URLSessionDataTask?, error: Error) in
+        }, failure: { (task: ExpressibleByNilLiteral, error: Error) in
             failure(error as NSError)
         })
 
